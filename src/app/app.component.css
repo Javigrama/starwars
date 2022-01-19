@@ -1,0 +1,18 @@
+
+
+h1, h3{
+    color:rgb(255, 217, 0);
+    font-family: cascadia;
+}
+html {
+    font-family: "cascadia";
+}
+
+@font-face {
+    font-family: lobster;
+    src: url("Lobster-Regular.ttf");
+  }
+  @font-face {
+    font-family: cascadia;
+    src: url("CascadiaCode.ttf");
+  }

@@ -1,0 +1,39 @@
+<table *ngIf = "personajes.length > 0">
+    <tr>
+        <th>Nombre</th>
+        <th>Altura</th>
+        <th>Peso</th>
+        <th>Color Pelo</th>
+        <th>Color ojos</th>
+        <th>Color Piel</th>
+        <th>Género</th>
+        <th>Planeta natal</th>
+    </tr>
+    <!-- <tr *ngFor = "let personaje of personajes; index as i">
+        <td>{{personaje.nombre}}</td>
+        <td>{{personaje.altura}}</td>
+        <td>{{personaje.peso}}</td>
+        <td>{{personaje.color_pelo}}</td>
+        <td>{{personaje.color_ojos}}</td>
+        <td>{{personaje.color_piel}}</td>
+        <td>{{personaje.genero}}</td>
+        <td><a href="{{personaje.planeta}}">{{personaje.planeta}}</a></td>
+       
+    </tr> -->
+    <tr *ngFor = "let personaje of personajes; index as i">
+        <td>{{personaje.name}}</td>
+        <td>{{personaje.height}}</td>
+        <td>{{personaje.mass}}</td>
+        <td>{{personaje.hair_color}}</td>
+        <td>{{personaje.eye_color}}</td>
+        <td>{{personaje.skin_color}}</td>
+        <td>{{personaje.gender}}</td>
+        <td><a href="{{personaje.homeworld}}" (click)="mostrarPlaneta($event, personaje.homeworld)">{{personaje.homeworld}}</a></td>
+        
+       
+    </tr>
+
+</table>
+<input type="button" value="Avanzar" (click)="avanzar($event)">
+<input type="button" value="Retroceder" (click)="retroceder($event)">
+<app-planeta [datos] = "planeta"></app-planeta>
