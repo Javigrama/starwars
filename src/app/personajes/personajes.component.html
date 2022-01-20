@@ -1,4 +1,78 @@
-<table *ngIf = "personajes.length > 0">
+<div class="container">
+    <input class="btn btn-primary" type="button" value="Avanzar" (click)="avanzar($event)">
+    <input class="btn btn-danger" type="button" value="Retroceder" (click)="retroceder($event)">
+</div>
+<br>
+<br>
+<br>
+<app-planeta [datos] = "planeta"></app-planeta>
+
+
+    <!-- <table class="table table-bordered border-primary" *ngIf = "personajes.length > 0"> -->
+        <table class="table table-responsive table-hover table-striped table-sm">
+        <!-- <table class="table table-bordered border-primary"> -->
+        <thead>
+        <tr  class="table-dark">
+            <th>Nombre</th>
+            <th>Altura</th>
+            <th>Peso</th>
+            <th>Color Pelo</th>
+            <th>Color ojos</th>
+            <th>Color Piel</th>
+            <th>Género</th>
+            <th>Planeta natal</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let personaje of personajes; index as i;">
+            <td>{{personaje.name}}</td>
+            <td>{{personaje.height}}</td>
+            <td>{{personaje.mass}}</td>
+            <td>{{personaje.hair_color}}</td>
+            <td>{{personaje.eye_color}}</td>
+            <td>{{personaje.skin_color}}</td>
+            <td>{{personaje.gender}}</td>
+            <td><a href="{{personaje.homeworld}}" (click)="mostrarPlaneta($event, personaje.homeworld)">{{personaje.homeworld}}</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<div class="container" *ngIf = "personajes.length > 0">
+    <div class="row">
+        <div class="col-2">Nombre</div>
+        <div class="col-1">Altura</div>
+        <div class="col-1">Peso</div>
+        <div class="col-1">Color Pelo</div>
+        <div class="col-1">Color ojos</div>
+        <div class="col-1">Color piel</div>
+        <div class="col-1">Género</div>
+        <div class="col-3 offset-1">Planeta natal</div>
+    </div>
+    <div class="row" *ngFor="let personaje of personajes">
+
+        <div class="col-2">{{personaje.name}}</div>
+        <div class="col-1">{{personaje.height}}</div>
+        <div class="col-1">{{personaje.mass}}</div>
+        <div class="col-1">{{personaje.hair_color}}</div>
+        <div class="col-1">{{personaje.eye_color}}</div>
+        <div class="col-1">{{personaje.skin_color}}</div>
+        <div class="col-1">{{personaje.gender}}</div>
+        <div class="col-3 offset-1"><a href="{{personaje.homeworld}}" (click)="mostrarPlaneta($event, personaje.homeworld)">{{personaje.homeworld}}</a></div>
+    </div>
+
+
+<br>
+<br>
+<br>
+<table *ngIf = "personajes.length > 0" class="">
     <tr>
         <th>Nombre</th>
         <th>Altura</th>
@@ -34,6 +108,3 @@
     </tr>
 
 </table>
-<input type="button" value="Avanzar" (click)="avanzar($event)">
-<input type="button" value="Retroceder" (click)="retroceder($event)">
-<app-planeta [datos] = "planeta"></app-planeta>
